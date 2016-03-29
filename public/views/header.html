@@ -1,0 +1,160 @@
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Home</a>
+                </div>
+                
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a ui-sref="app.aboutus">
+                            <span class="glyphicon glyphicon-globe"></span> About</a></li>
+<!----Category dropdown---->                       
+                        <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            
+                            
+                            <li><a ui-sref="app.category_education">Education</a></li>
+                            <li><a ui-sref="app.category_entertainment">Entertainment</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a ui-sref="app.category">See All Videos</a>
+                          </ul>
+                        </li>
+                        <li><a ui-sref="app.submit">
+                            <i class="fa fa-share-alt"></i> Upload</a></li>
+                  </ul>
+<!--Login: Invoke the modal------------->
+    <ul class="nav navbar-nav navbar-right">
+        <li><a id="login-link">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+        <li><a id="register" ui-sref="app.signup"> Register</a>
+        </li>
+    </ul>
+<!-------------------------------------->
+                </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+<!---------------Login Modal------------>
+    <div  id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4  class="modal-title">Login </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" onsubmit="return false">
+                    <div class="form-group">
+                        <label class="sr-only" for="email">Email Address</label>
+                        <input type="email" class="form-control-input-sm"  id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="password">Password</label>
+                        <input type="password" class="form-control-input-sm" id="password" placeholder="Password" >
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                    <button type="button" id="login-btn"  class="btn btn-info btn-sm">Log in</button>
+                    <button type="button" class="btn btn-default btn-sm"
+                       data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+<script>
+$("#login-link").click(function() {
+    $("#loginModal").modal('show');
+});
+var userSession = null;
+$.ajax({
+    url:'./getUserSession',
+    success:function(data){
+        if(data){
+            $('#login-link').unbind("click");
+            var data = JSON.parse(data);
+            $('#login-link').text(data.email).append('<a href="./logout" id="logout" class="btn btn-sm btn-danger" >logout</a>');
+
+        }
+       else{
+            $("#login-btn").click(function(){
+                var email = $("#email").val();
+                var password = $("#password").val();
+                $.ajax({
+                    url:"./login",
+                    type:"POST",
+                    data:{email:email,password:password},
+                    success:function(data){
+                        if(data === "success"){
+                            $("#loginModal").modal('hide');
+                            $('#login-link').unbind("click");
+                            $('#login-link').text(email).append('<a href="./logout" id="logout" class="btn btn-sm btn-danger" >logout</a>');
+
+                        }
+
+                        else if(data ==="error"){
+                                alert("用户名或密码错误");}
+                        else {
+                            alert("账户不存在");}
+                    }
+                });
+            });
+        }
+    }
+});
+</script>
+
+
+<!---
+
+
+<script>
+$("#login-link").click(function() {
+    $("#loginModal").modal('show');
+});
+    
+    
+        $("#login-btn").click(function(){
+            var email = $("#email").val();
+            var password = $("#password").val();
+            $.ajax({
+                url:"./login",
+                type:"POST",
+                data:{email:email,password:password},
+                success:function(data){
+                    if(data === "success"){
+                        $("#loginModal").modal('hide');
+                        $('#login-link').text(email);
+                    }
+                       
+                    else if(data ==="error")
+                        alert("用户名或密码错误");
+                    else
+                        alert("账户不存在");
+                }
+            })
+        })
+</script>
+
+---------->

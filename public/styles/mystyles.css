@@ -1,0 +1,113 @@
+.row_header{
+    margin:0px auto;
+    padding:0px auto;
+}
+
+
+.row-content{
+    margin:0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px;
+}
+
+.row-footer{
+    background-color: #AfAfAf;
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+}
+
+.jumbotron#jumbo-enter{
+    background-image: url("../images/SnSjp_ent.png");
+}
+
+.jumbotron#jumbo-edu{
+    background-image: url("../images/SnSjp_edu.png");
+}
+
+.jumbotron{
+    padding: 70px 30px 70px 30px;
+    margin: 0px auto;
+    color: white;
+    background-image: url("../images/SnSjp.png");
+    background-size: cover;}
+}
+
+
+
+address{
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+}
+
+body{
+    align:center;
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-default{
+    background: white;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .narbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+    /**
+    color: #fff;
+    background: #1A237E;
+    */
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > ,open > a:focus{
+    /**
+    color: #fff;
+    background: #1A237E;
+    */
+}
+
+
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
+    color:#000000;
+}
+
+.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.affix {
+    top:100px;
+}
+
+
+.carousel {
+    background:#1A237E;
+    height: 650px;
+    width: 650px;
+}
+.carousel .item {
+    height: 650px;
+    width: 650px;
+}
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+.img-thumbnail{
+    width: 150px;
+    height:150px;
+}
+#carouselButtons {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+}

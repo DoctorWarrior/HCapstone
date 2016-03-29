@@ -1,0 +1,85 @@
+<header class="jumbotron">
+<!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <p style="padding:25px;"></p>
+        </div>
+    </div>
+</header>
+    <div class="container ng-scope" ng-controller="SubmitController">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li class="active">Upload & Share</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Upload and Share Your Stories with us!</h3>
+               <hr>
+            </div>
+        </div>
+        <div  class="row row-content" ng-show="isLogin">
+            <div class="col-xs-12 col-sm-9">
+                <form class="form-horizontal" role="form" method="POST" action="/videos/addVideo"  enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label for="topic" class="col-sm-2 control-label">Topic</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter The Topic of Your Video">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="category" class="col-sm-2 control-label">Category</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline"><input type="radio" id="Education" name="category" value="Education" checked="">Education</label>
+                            <label class="radio-inline"><input type="radio" id="Entertainment" name="category" value="Entertainment">Entertainment</label>
+                        </div>
+                    </div>
+                       
+                    
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="description" name="description" rows="12"></textarea>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label for="videofile" class="col-sm-2 control-label">Select Video</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="videofile" name="videofile" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="videophoto" class="col-sm-2 control-label">Select Photo</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="videophoto" name="videophoto" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                        
+                </form>
+            </div>
+             <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+            </div>
+       </div>
+        <div class="alert alert-danger" role="alert" ng-show="!isLogin">
+            Please Login First
+        </div>
+
+
+        
+    </div>
+
+    
+    

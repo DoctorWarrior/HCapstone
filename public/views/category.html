@@ -1,0 +1,58 @@
+<header class="jumbotron">
+<!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <p style="padding:25px;"></p>
+        </div>
+    </div>
+</header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a ui-sref="app">Home</a></li>
+                   <li class="active">Category</li>
+               </ul>
+            </div>
+            <div class="col-xs-12">
+               <h3>Upload and Share Your Stories with us!</h3>
+               <hr>
+            </div>
+        </div>
+    
+        
+        
+        <div class="row row-content" ng-controller="CategoryController">
+            <div class="col-xs-12" ng-if="!showMenu">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="col-xs-12" ng-if="showMenu">
+        
+                
+            <!--<div class="tab-content">-->
+               <ul class="media-list tab-pane fade in active">
+                   <li class="media" ng-repeat="video in videos">
+                        <div class="media-left media-middle">
+                            <a ui-sref="app.videodetails({id: video._id})">
+                            <img class="media-object img-thumbnail"
+                             ng-src="videos/{{video.image}}" alt="video">
+                            </a>
+                        </div>
+                       
+                        <div class="media-body">
+                            <h2 class="media-heading">{{video.name}}</h2>
+                            <p>{{video.description}}</p>
+                        </div>
+                    </li>
+               </ul>
+            <!--</div>--->
+                  
+            </div>
+        </div>
+    </div>
+    
+ 
+
+    
+   
