@@ -15,7 +15,7 @@
                </ul>
             </div>
             <div class="col-xs-12">
-               <h3>Register and open a new world</h3>
+               <h3>Register and open up a new world</h3>
                <hr>
             </div>
     </div>
@@ -93,11 +93,11 @@
         data:{username:username,password:password,email:email},
         success:function(data){
              if(data == "exist"){
-                $('#alert').html('<div class="alert alert-danger" role="alert">Email has been registered</div>');
+                $('#alert').html('<div class="alert alert-danger" role="alert">Email has been registered. Please try to log in now.</div>');
             }else if(data == 'error'){
-                $('#alert').html('<div class="alert alert-danger" role="alert">Sorry, system error</div>');
+                $('#alert').html('<div class="alert alert-danger" role="alert">No response from server. Please try again later.</div>');
             }else{
-                $('#alert').html('<div class="alert alert-info" role="alert">Success! Thanks for registering with us!</div>');
+                $('#alert').html('<div class="alert alert-info" role="alert">Success! Thanks for registering with us.</div>');
 
             }
         }
